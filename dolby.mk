@@ -41,10 +41,6 @@ PRODUCT_COPY_FILES += \
     prebuilts/vndk/v33/arm/arch-arm-armv7-a-neon/shared/vndk-core/libstagefright_foundation.so:$(TARGET_COPY_OUT_VENDOR)/lib/libstagefright_foundation-v33.so \
     prebuilts/vndk/v33/arm64/arch-arm64-armv8-a/shared/vndk-core/libstagefright_foundation.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libstagefright_foundation-v33.so
 
-# Overlays    
-PRODUCT_PACKAGES += \
-    DolbyFrameworksResCommon
-
 # Media C2 Vendor
 PRODUCT_PACKAGES += \
     libcodec2_hidl@1.0.vendor \
@@ -53,12 +49,10 @@ PRODUCT_PACKAGES += \
     libstagefright_softomx_plugin.vendor \
 
 # Dolby Props
-TARGET_USES_DOLBY := true
 PRODUCT_VENDOR_PROPERTIES += \
-ro.vendor.dolby.dax.version=DAX3_3.6.0.12_r1 \
+ro.vendor.dolby.dax.version=DAX3_3.7 \
 vendor.audio.dolby.ds2.enabled=true \
 vendor.audio.dolby.ds2.hardbypass=false \
-ro.audio.monitorRotation=true \
 
 # Remove Packages for Dolby Support
 PRODUCT_PACKAGES += \
@@ -66,15 +60,15 @@ PRODUCT_PACKAGES += \
 
 # XiaomiDolby and daxService
 PRODUCT_PACKAGES += \
-    XiaomiDolby \
+    DolbySound \
     daxService \
    
 # Dolby Permissions
 PRODUCT_COPY_FILES += \
-    $(DOLBY_PATH)/proprietary/system_ext/etc/sysconfig/config-com.dolby.daxappui.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/sysconfig/config-com.dolby.daxappui.xml \
+    $(DOLBY_PATH)/proprietary/system_ext/etc/sysconfig/config-com.dolby.daxappui2.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/sysconfig/config-com.dolby.daxappui2.xml \
     $(DOLBY_PATH)/proprietary/system_ext/etc/sysconfig/config-com.dolby.daxservice.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/sysconfig/config-com.dolby.daxservice.xml \
     $(DOLBY_PATH)/proprietary/system_ext/etc/sysconfig/hiddenapi-com.dolby.daxservice.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/sysconfig/hiddenapi-com.dolby.daxservice.xml \
-    $(DOLBY_PATH)/proprietary/system_ext/etc/permissions/privapp-com.dolby.daxappui.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-com.dolby.daxappui.xml \
+    $(DOLBY_PATH)/proprietary/system_ext/etc/permissions/privapp-com.dolby.daxappui2.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-com.dolby.daxappui2.xml \
     $(DOLBY_PATH)/proprietary/system_ext/etc/permissions/privapp-com.dolby.daxservice.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/privapp-com.dolby.daxservice.xml \
 
 # Dolby Proprietary blobs
